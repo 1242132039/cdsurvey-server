@@ -6,26 +6,28 @@ var app = angular.module('keycloak-tutorial', [
 ]);
 
 // configure routes
-app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/main', {
+app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
+    when('/main', {
         templateUrl: 'views/main.html',
         controller: 'MainController'
-    }).otherwise({
+    }).
+    otherwise({
         redirectTo: '/main'
     });
 }]);
 
 // use bearer token when calling backend
-app.config(['$httpProvider', function ($httpProvider) {
+app.config(['$httpProvider', function($httpProvider) {
     var isExpired = window._keycloak.isTokenExpired();
     var token = window._keycloak.token;
 
     if (isExpired) {
         window._keycloak.updateToken(5)
-            .success(function () {
+            .success(function() {
                 $httpProvider.defaults.headers.common['Authorization'] = 'BEARER ' + token;
             })
-            .error(function () {
+            .error(function() {
                 console.error('Failed to refresh token');
             });
     }
@@ -47,25 +49,23 @@ angular.module('keycloak-tutorial').factory('authorization', function ($window) 
 });
 
 // on every request, authenticate user first
-angular.element(document).ready(() = > {
+angular.element(document).ready(() => {
     window._keycloak = Keycloak('keycloak/keycloak.json');
 
-window._keycloak.init({
-        onLoad: 'login-required'
-    })
-    .success((authenticated) = > {
-    if(authenticated) {
-        window._keycloak.loadUserProfile().success(function (profile) {
-            angular.bootstrap(document, ['keycloak-tutorial']); // manually bootstrap Angular
+    window._keycloak.init({
+            onLoad: 'login-required'
+        })
+        .success((authenticated) => {
+            if(authenticated) {
+                window._keycloak.loadUserProfile().success(function(profile){
+                    angular.bootstrap(document, ['keycloak-tutorial']); // manually bootstrap Angular
+                });
+            }
+            else {
+                window.location.reload();
+            }
+        })
+        .error(function () {
+            window.location.reload();
         });
-    }
-    else {
-        window.location.reload();
-}
-})
-.
-error(function () {
-    window.location.reload();
 });
-})
-;

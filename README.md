@@ -24,4 +24,6 @@ docker cp  default_cmd.sh  ded4aa1378e3:/root/
 
 docker commit -m "survey server" ded4aa1378e3 surveyserver:v1
 
-docker run  --rm --name surveywebapp  -p 10120:8000  surveyserver:v2  /root/default_cmd.sh
+ nohup docker run  --rm --name surveywebapp  -p 10120:8000 -e PORT=8000  surveyserver:v6  bash  /root/default_cmd.sh
+
+
