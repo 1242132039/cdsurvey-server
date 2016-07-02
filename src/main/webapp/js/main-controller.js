@@ -5,10 +5,10 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
         $scope.status = 'running...';
         $scope.profile = authorization.profile;
         $scope.isAdmin = authorization.hasRealmRole('admin')
-        $scope.isManager = authorization.hasRealmRole('manager')
+        $scope.isManager = authorization.hasRealmRole('portaluser')
         
         $scope.getContracts = function() {
-        	$http.get("http://localhost:8000/api/contracts").success(function(data) {
+        	$http.get("http://clouddata.f3322.net:10320/api/contracts").success(function(data) {
             	$scope.contracts = data;
             });
         }
