@@ -23,4 +23,5 @@ Then navigate to [http://localhost:8000](http://localhost:8000) to see the appli
 docker cp  default_cmd.sh  ded4aa1378e3:/root/
 
 docker commit -m "survey server" ded4aa1378e3 surveyserver:v1
-s
+
+docker run  --rm --name surveywebapp  -p 10120:8000  surveyserver:v2  /root/default_cmd.sh
