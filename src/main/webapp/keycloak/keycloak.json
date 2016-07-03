@@ -2,7 +2,7 @@
   "realm": "survey-product",
   "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr/OWs064OPAgaMCf7v0wJESlZ6mhhMLdmYZ6qp8yxwTeRiCsf3yB0FO4NgB+1wGDgYsnePUHPo/eTfNF0XFWvF4sgRnQswd+4L1ZvPF1ZliVqJSnEnAWdDBOPwdB9FrNuNS5t/7hFvfX0mBo/3Bh3c8Zdcy/3KnR6qrwKRZwYT65/w8xOnwh1UnrzhFGrgaxdIibID4XXv2XofIkB+gnIa69knoyNjFownnIwHa4sy6fM2dzp7N8Zde4CJqjp28HJBEbpvIPYGWIHkI0P1vgWR00L8mUXex9jfYuB1XUuArRSRhj9It9wBT8xZQOyjmFkjXxnF6hKtqOspL9XeXhpwIDAQAB",
   "auth-server-url": "http://clouddata.f3322.net:10310/auth",
-  "ssl-required": "external",
+  "ssl-required": "none",
   "resource": "survey-frontend",
   "public-client": true
 }
