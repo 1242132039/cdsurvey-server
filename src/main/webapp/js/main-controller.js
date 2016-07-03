@@ -8,7 +8,7 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
         $scope.isManager = authorization.hasRealmRole('portaluser')
 
         $scope.getContracts = function() {
-            $http.get("http://localhost:8000/api/contracts").success(function(data) {
+            $http.get("api/contracts").success(function(data) {
                 $scope.contracts = data;
             });
         }

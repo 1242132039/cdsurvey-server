@@ -1,0 +1,10 @@
+{
+  "name": "cdsurvey-web",
+  "version": "0.0.1",
+  "devDependencies": {
+    "babel-cli": "^6.10.1"
+  },
+  "scripts": {
+    "build": "babel js -d jsc"
+  }
+}
